@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Friends Coin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+            color: #333;
+        }
+
+        header {
+            background-color: #6200ea;
+            padding: 10px 0;
+            color: white;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style-type: none;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+        }
+
+        button {
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #3700b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#presale">Presale</a></li>
+                <li><a href="#airdrop">Airdrop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Welcome to Happy Friends Coin</h1>
+        <p>Your fun and community-driven Solana meme coin!</p>
+        <button onclick="window.location.href='#presale'">Join Presale</button>
+        <button onclick="window.location.href='#airdrop'">Claim Airdrop</button>
+    </section>
+
+    <section id="presale">
+        <h2>Presale Details</h2>
+        <p>Start your journey with Happy Friends Coin!</p>
+        <div>
+            <p>Presale starts: [Start Date]</p>
+            <p>Presale price: [Price]</p>
+            <button onclick="buyCoin()">Buy Happy Friends Coin</button>
+            <div id="progress-bar"></div>
+            <p id="countdown"></p>
+        </div>
+    </section>
+
+    <section id="airdrop">
+        <h2>Claim Your Airdrop</h2>
+        <p>Get free Happy Friends coins by participating in the airdrop!</p>
+        <p>Steps: [Steps for claiming]</p>
+        <button onclick="claimAirdrop()">Claim Airdrop</button>
+    </section>
+
+    <section id="about">
+        <h2>About Happy Friends Coin</h2>
+        <p>Your vision and the community behind the coin.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Get in touch through the form below:</p>
+        <!-- Add contact form or social media links -->
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Happy Friends Coin. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Presale countdown logic
+        let countdownDate = new Date("2025-04-20T00:00:00").getTime(); // Set presale end date
+        let countdownFunction = setInterval(function() {
+            let now = new Date().getTime();
+            let distance = countdownDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "Presale Ended";
+            } else {
+                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+                    + minutes + "m " + seconds + "s ";
+            }
+        }, 1000);
+
+        // Function for buying coins (integrate with Solana wallet)
+        function buyCoin() {
+            alert("Connect your Solana wallet to buy Happy Friends Coin!");
+            // Add wallet connection code here (using Solana Web3.js or Phantom wallet)
+        }
+
+        // Function for claiming airdrop
+        function claimAirdrop() {
+            alert("Claiming airdrop... Please complete the required tasks.");
+            // Add airdrop logic here (connect wallet, follow social media, etc.)
+        }
+    </script>
+</body>
+</html>
